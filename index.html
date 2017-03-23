@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GraphX</title>
+	<link href="assets/css/bootstrap.css" rel="stylesheet">
+	<script type="text/javascript" src="assets/js/angular/angular.js"></script>
+	<script type="text/javascript" src="assets/js/angular-resource/angular-resource.js"></script>
+
+
+	<script type="text/javascript" src="app/app.module.js"></script>
+	<script type="text/javascript" src="app/components/core/core.module.js"></script>
+	<script type="text/javascript" src="app/components/core/core.router.js"></script>
+	<script type="text/javascript" src="assets/js/angular-ui-router/release/angular-ui-router.js"></script>
+	<script type="text/javascript" src="app/components/cards/cards.module.js"></script>
+	<script type="text/javascript" src="app/components/cards/cards.router.js"></script>
+
+	<script type="text/javascript" src="app/components/cards/cards.controller.js"></script>
+	<script type="text/javascript" src="app/components/cards/cards.service.js"></script>
+	<script type="text/javascript" src="app/components/shared/shared.module.js"></script>
+	<script type="text/javascript" src="app/components/shared/showMore.directive.js"></script>
+
+
+</head>
+<body ng-app="appModule">
+	<div class="container-fluid">
+	
+	<div ui-view="head"></div>	
+	<div ui-view="content"></div>
+
+	</div >
+</body>
+</html>

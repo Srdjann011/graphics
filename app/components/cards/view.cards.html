@@ -1,0 +1,75 @@
+
+<div class="container"  >
+	<div class="col-sm-2">
+		<button ng-click="cc.changePage(-1)" class="btn btn-primary">{{cc.prev}}</button>
+		<button ng-click="cc.changePage(1)" class="btn btn-primary">{{cc.next}}</button>
+	</div>	
+	<div class="col-sm-6" >
+
+		<ul class="pagination pull-right">
+		  <li ng-class="{active : cc.pageSize == 5}"><a ng-href ng-click="cc.changePageSize(5)">5</a></li>
+		  <li ng-class="{'active' : cc.pageSize == 10}"><a ng-href ng-click="cc.changePageSize(10)">10</a></li>
+		  <li ng-class="{'active' : cc.pageSize == 20}"><a ng-href ng-click="cc.changePageSize(20)">20</a></li>
+
+		</ul>
+
+	
+
+	</div>
+	<div class="col-sm-4" "></div>
+
+</div>
+<div class="col-sm-12" >
+		<span>
+		<div class="col-sm-8"  >
+			<div ng-repeat="card in cc.cardList">
+				<div class="col-sm-2"> 
+					<img ng-src="{{card.image}}">
+				</div>
+				<div class="col-sm-10">
+					<h4 ng-click=cc.loadComments(card._id)><a ng-href >{{card.title}}</a></h4>	
+					<p>
+						<show-more text="card.description"></show-more>
+					</p>
+					<p>
+						<span class="pull-right">
+							<button ng-click="cc.changeGrade(card, -1)" class="btn btn-danger">-</button>
+							 {{card.grade}}
+							 <button ng-click="cc.changeGrade(card, 1)" class="btn btn-success">+</button>
+						 </span>
+					</p>
+				</div>
+			</div>
+		</div>
+		</span>
+
+
+		
+		<div class="col-sm-4" style="background-color: pink;">
+					
+			<div >
+				<form ng-show="cc.comments" ng-submit="cc.saveComment()" ng-model="cc.newComment">
+					<div class="form-group">
+					  <label for="name">Name:</label>
+					  <input type="text" class="form-control" id="name" ng-model="cc.newComment.author">
+					</div>	
+					<div class="form-group">
+					  <label for="comment">Comment:</label>
+					  <input ng-model="cc.newComment.text" type="text" class="form-control" id="comment">
+					</div>
+					<input type="submit" value=Submit name="submit" class="btn btn-primary" >
+				</form>
+			</div>
+				<div  ng-repeat="com in cc.comments">
+					<h4>Name :{{com.author}}</h4>
+					<p>Comment:{{com.text}} </p>
+					<p>Date:{{com.date| date}} </p>
+				</div>
+				
+					  
+				
+
+		</div>
+
+
+</div>
